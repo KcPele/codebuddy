@@ -45,7 +45,7 @@ def logout_page(request):
 def register_page(request):
     form = MyUserCreationForm()
     if request.method == 'POST':
-
+        form = MyUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
