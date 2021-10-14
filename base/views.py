@@ -26,11 +26,6 @@ def login_page(request):
     if request.method == 'POST':
         email = request.POST['email'].lower()
         password = request.POST['password']
-        try:
-            user = User.objects.get(email=email)
-        except:
-            messages.error(request, 'User does not exist')
-        
         user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request, user)
