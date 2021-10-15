@@ -53,7 +53,7 @@ def register_page(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'An error occured during registrations')
+            messages.error(request, 'Check Fields To Rectify Your Mistakes')
     context = {'form':form}
     return render(request, 'base/login_register.html', context)
 
