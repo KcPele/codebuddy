@@ -99,7 +99,7 @@ def room(request, pk):
 
 def user_profile(request, pk):
     user = User.objects.get(id=pk)
-    rooms = user.room_set.all()
+    rooms = user.rooms.all()
     room_messages = user.message_set.all()
     topics = Topic.objects.all()
     context = {
