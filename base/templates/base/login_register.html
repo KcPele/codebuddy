@@ -1,6 +1,6 @@
 {% extends 'main.html' %} {% block content %}
 <main class="auth layout">
-  {% if page == 'login'%}
+   {% if page == 'login'%}
   <div class="container">
     <div class="layout__box">
       <div class="layout__boxHeader">
@@ -9,8 +9,10 @@
         </div>
       </div>
       <div class="layout__body">
-        <h2 class="auth__tagline">Find your coding partner</h2>
-
+        <h2 class="auth__tagline">Find your Trading partner</h2>
+        {% if messages %} {% for message in messages %}
+        <p class="auth__tagline">{{message}}</p>
+        {% endfor%} {% endif %}
         <form class="form" action="" method="POST">
           {% csrf_token %}
           <div class="form__group form__group">
@@ -69,14 +71,15 @@
         </div>
       </div>
       <div class="layout__body">
-        <h2 class="auth__tagline">Find your coding partner</h2>
-
+        <h2 class="auth__tagline">Find your Trading partner</h2>
+        {% if messages %} {% for message in messages %}
+        <p class="auth__tagline">{{message}}</p>
+        {% endfor%} {% endif %}
         <form class="form" action="" method="POST">
           {% csrf_token %} {% for field in form %}
           <div class="form__group form__group">
             <label for="room_name">{{field.label}}</label>
-            {{field.errors}}
-            {{field }}
+            {{field.errors}} {{field }}
           </div>
           {% endfor %}
 
